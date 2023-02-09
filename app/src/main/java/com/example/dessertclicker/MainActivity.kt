@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -46,15 +47,31 @@ import com.example.dessertclicker.data.Datasource.dessertList
 import com.example.dessertclicker.ui.theme.DessertClickerTheme
 import com.example.dessertclicker.model.Dessert
 
+// Compile-time constant
+private const val TAG = "MainActivity"
+
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate Called")
         setContent {
             DessertClickerTheme {
                 DessertClickerApp(desserts = dessertList)
             }
         }
+    }
+
+    // Called right after the activity is created
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart Called")
+    }
+
+    // Called when you return to the home screen/ when this activity is no longer visible
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop Called")
     }
 }
 
