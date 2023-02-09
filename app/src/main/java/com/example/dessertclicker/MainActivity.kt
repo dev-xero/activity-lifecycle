@@ -68,10 +68,30 @@ class MainActivity : ComponentActivity() {
         Log.d(TAG, "onStart Called")
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(TAG, "onRestart Called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause Called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume Called")
+    }
+
     // Called when you return to the home screen/ when this activity is no longer visible
     override fun onStop() {
         super.onStop()
         Log.d(TAG, "onStop Called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy Called")
     }
 }
 
